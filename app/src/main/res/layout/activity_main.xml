@@ -7,12 +7,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#0037FF"
-        android:layout_centerInParent="true"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:text="Nguyễn Trọng Nhân"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Hao tran"
+        android:textColor="#8BC34A"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
