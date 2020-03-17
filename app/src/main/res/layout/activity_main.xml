@@ -9,10 +9,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:text="Không được la Ngân nữa!!!"
         android:textAllCaps="true"
+        android:textColor="#8BC34A"
         android:textSize="30dp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
