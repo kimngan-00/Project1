@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/menu_ChoO"
+            android:icon="@drawable/home_24px"
+            android:title="Chỗ ở"></item>
+
+        <item
+            android:id="@+id/menu_AnUong"
+            android:icon="@drawable/restaurant_26px"
+            android:title="Địa Điểm Ăn Uống" />
+
+        <item
+            android:id="@+id/menu_CheckIn"
+            android:icon="@drawable/country_50px"
+            android:title="Địa Điểm Check-in" />
+
+        <item
+            android:id="@+id/menu_Blog"
+            android:icon="@drawable/voice_recognition_50px"
+            android:title="Trải Nghiệm Du Lịch" />
+
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/menu_DoiMK"
+                android:icon="@drawable/user_24px"
+                android:title="Đổi Mật Khẩu" />
+
+            <item
+                android:id="@+id/menu_DangXuat"
+                android:icon="@drawable/export_64px"
+                android:title="Đăng xuất" />
+
+            <item
+                android:id="@+id/menu_Thoat"
+                android:icon="@drawable/shutdown_64px"
+                android:title="Thoát" />
+        </menu>
+
+    </item>
+</menu>
