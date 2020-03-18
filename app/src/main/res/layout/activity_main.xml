@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Acitivities.MainActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -22,5 +22,5 @@
         android:text="Nguyễn Trọng Nhân"
         android:textColor="#8BC34A"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 </LinearLayout>
