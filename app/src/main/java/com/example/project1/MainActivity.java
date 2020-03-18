@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toast("Tran Quoc Hao");
     }
     private void toast(String s){
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
