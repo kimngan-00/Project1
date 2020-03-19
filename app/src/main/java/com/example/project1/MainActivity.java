@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.project1.Fragment.FragmentAnUong;
 import com.example.project1.Fragment.FragmentCheckIn;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toast.makeText(this, "Tran Quoc Hao", Toast.LENGTH_SHORT).show();
         initView();
     }
 
