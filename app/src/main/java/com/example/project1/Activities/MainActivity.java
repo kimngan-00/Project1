@@ -1,4 +1,4 @@
-package com.example.project1;
+package com.example.project1.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,6 +14,7 @@ import com.example.project1.Fragment.FragmentCheckIn;
 import com.example.project1.Fragment.FragmentChoO;
 import com.example.project1.Fragment.FragmentDoiMatKhau;
 import com.example.project1.Fragment.FragmentTravelBlog;
+import com.example.project1.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
