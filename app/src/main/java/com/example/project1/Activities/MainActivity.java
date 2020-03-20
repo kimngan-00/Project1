@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentChoO()).commit();
         database = FirebaseDatabase.getInstance().getReference("sinhvien");
-        database.child("12312").removeValue();
+        database.child("456").setValue("1234567");
 
 
 
