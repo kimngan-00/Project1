@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.example.project1.Fragment.FragmentChoO;
 import com.example.project1.Fragment.FragmentDoiMatKhau;
 import com.example.project1.Fragment.FragmentTravelBlog;
 import com.example.project1.R;
+import com.example.project1.model.SinhVien;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,15 +26,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
+    DatabaseReference database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-        myRef.setValue("Hello, World!");
         initView();
     }
 
@@ -43,8 +43,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentChoO()).commit();
+        database = FirebaseDatabase.getInstance().getReference("sinhvien");
+        database.child("12312").removeValue();
+
+
+
 
     }
 
@@ -83,5 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+    private void log(String s){
+        Log.d("log", s);
     }
 }
