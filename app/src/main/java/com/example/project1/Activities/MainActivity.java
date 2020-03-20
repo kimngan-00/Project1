@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     DatabaseReference database;
-
     DAO_SinhVien dao_sinhVien;
 
     @Override

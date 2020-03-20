@@ -8,25 +8,26 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.project1.R;
+import com.example.project1.model.MonHoc;
 import com.example.project1.model.SinhVien;
 
 import java.util.List;
 
-public class Adapter_LV_ChoO extends BaseAdapter {
+public class Adapter_lv_MonHoc extends BaseAdapter {
     Context context;
     int layout;
-    List<SinhVien> sinhVienList;
+    List<MonHoc> monHocList;
     int index;
 
-    public Adapter_LV_ChoO(Context context, int layout, List<SinhVien> sinhVienList) {
+    public Adapter_lv_MonHoc(Context context, int layout, List<MonHoc> monHocList) {
         this.context = context;
         this.layout = layout;
-        this.sinhVienList = sinhVienList;
+        this.monHocList = monHocList;
     }
 
     @Override
     public int getCount() {
-        return sinhVienList.size();
+        return monHocList.size();
     }
 
     @Override
@@ -40,18 +41,16 @@ public class Adapter_LV_ChoO extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(layout,null );
-        TextView ten = convertView.findViewById(R.id.dongChoO_TvDiaChi);
-        TextView ma = convertView.findViewById(R.id.dongChoO_TvTenKhachSan);
-        TextView diem = convertView.findViewById(R.id.dongChoO_TvGiaTien);
-        SinhVien sinhVien = sinhVienList.get(position);
-       ten.setText(sinhVien.getTen());
-       ma.setText(sinhVien.getMa());
-       diem.setText(String.valueOf(sinhVien.getDiem()));
+        convertView = inflater.inflate(layout,null);
+        TextView ma = convertView.findViewById(R.id.activity2_TvMaMh);
+        TextView ten= convertView.findViewById(R.id.activity2_TvTenMH);
+
+MonHoc monHoc = monHocList.get(position);
+        ten.setText(monHoc.getTenMH());
+        ma.setText(monHoc.getMaMH());
 
         return convertView;
     }
-
 }

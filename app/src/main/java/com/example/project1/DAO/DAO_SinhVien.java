@@ -52,6 +52,28 @@ public class DAO_SinhVien {
         sinhVien.setMa(id);
         database.child(id).setValue(sinhVien);
     }
+    public List getdata(){
+        final List<SinhVien> sinhVienList= new ArrayList<>();
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                sinhVienList.clear();
+                for (DataSnapshot ds: dataSnapshot.getChildren()){
+                    SinhVien sinhVien=ds.getValue(SinhVien.class);
+                    sinhVienList.add(sinhVien);
+                }
+                for (SinhVien sv:sinhVienList){
+                    toast(sv.getTen());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        return sinhVienList;
+    }
 
     public void xoa(String id){
         database.child(id).removeValue();
@@ -66,7 +88,6 @@ public class DAO_SinhVien {
                for (DataSnapshot ds : dataSnapshot.getChildren()){
                    SinhVien sinhVien = ds.getValue(SinhVien.class);
                    sinhVienList.add(sinhVien);
-
                }
                ((FragmentChoO)fragment).lamMoiDanhSachSinhVien();
            }
@@ -79,9 +100,11 @@ public class DAO_SinhVien {
 
         return sinhVienList;
     }
+
     private void log (String s){
         Log.d("log", s);
     }
+
     private void toast(String s){
         Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
     }
