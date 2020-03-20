@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.project1.DAO.DAO_SinhVien;
 import com.example.project1.Fragment.FragmentAnUong;
 import com.example.project1.Fragment.FragmentCheckIn;
 import com.example.project1.Fragment.FragmentChoO;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     DatabaseReference database;
+    DAO_SinhVien dao_sinhVien;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initView() {
+        dao_sinhVien = new DAO_SinhVien(this);
         navigationView = (NavigationView) findViewById(R.id.navigationView);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView.setNavigationItemSelectedListener(this);
@@ -44,10 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentChoO()).commit();
-        database = FirebaseDatabase.getInstance().getReference("sinhvien");
-        database.child("456").setValue("1234567");
-
-
+        dao_sinhVien.delete( "-M2qoF_EFmKFscvMh-7z");
 
 
     }

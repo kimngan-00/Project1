@@ -13,6 +13,11 @@ public class SinhVien {
         this.diem = diem;
     }
 
+    public SinhVien(String ten, double diem) {
+        this.ten = ten;
+        this.diem = diem;
+    }
+
     public String getTen() {
         return ten;
     }
