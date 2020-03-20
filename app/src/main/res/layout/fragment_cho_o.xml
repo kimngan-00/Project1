@@ -40,7 +40,6 @@
         android:layout_below="@id/fChoO_lnDiaDiem"
         android:id="@+id/fChoO_lvChoO">
 
-
     </ListView>
 
 

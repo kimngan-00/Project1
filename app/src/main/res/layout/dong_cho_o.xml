@@ -20,21 +20,21 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="Tên Khách Sạn"
-            android:id="@+id/fChoO_txtTenKhachSan"/>
+            android:id="@+id/dongChoO_TvTenKhachSan"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="Địa Chỉ"
-            android:id="@+id/fChoO_txtDiaChi"/>
+            android:id="@+id/dongChoO_TvDiaChi"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="Giá Tiền"
-            android:id="@+id/fChoO_txtGiaTien"/>
+            android:id="@+id/dongChoO_TvGiaTien"/>
     </LinearLayout>
 
 </LinearLayout>
