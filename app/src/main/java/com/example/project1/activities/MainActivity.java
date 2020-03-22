@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initView();
+        log("Nguyễn Trọng Nhân");
     }
 
     private void initView() {
