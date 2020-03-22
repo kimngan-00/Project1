@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 import com.example.project1.Adapter.Adapter_LV_ChoO;
 import com.example.project1.DAO.DAO_SinhVien;
 import com.example.project1.R;
+import com.example.project1.model.Firebase_CallBack;
 import com.example.project1.model.SinhVien;
 
 import java.util.ArrayList;
@@ -43,9 +45,17 @@ public class FragmentChoO extends Fragment {
     public void initView() {
         dao_sinhVien = new DAO_SinhVien(getActivity(),this);
         listView = (ListView) view.findViewById(R.id.fChoO_lvChoO);
-        danhSachSinhVien = dao_sinhVien.laydulieu();
-        adapterLvChoO = new Adapter_LV_ChoO(getActivity(),R.layout.dong_cho_o, danhSachSinhVien);
-        listView.setAdapter(adapterLvChoO);
+//        danhSachSinhVien = dao_sinhVien.getData();
+//        adapterLvChoO = new Adapter_LV_ChoO(getActivity(),R.layout.dong_cho_o, danhSachSinhVien);
+//        listView.setAdapter(adapterLvChoO);
+        dao_sinhVien.getData(new Firebase_CallBack(){
+            @Override
+            public void getListSV(List<SinhVien> sinhVienList) {
+                adapterLvChoO = new Adapter_LV_ChoO(getActivity(),R.layout.dong_cho_o, sinhVienList);
+                listView.setAdapter(adapterLvChoO);
+            }
+
+        });
     }
 
     @Override
@@ -53,7 +63,9 @@ public class FragmentChoO extends Fragment {
         lamMoiDanhSachSinhVien();
         super.onResume();
     }
-
+    private void log(String s){
+        Log.d("log",s);
+    }
     public void lamMoiDanhSachSinhVien(){
         if (adapterLvChoO!=null){
             adapterLvChoO.notifyDataSetChanged();

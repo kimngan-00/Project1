@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     DatabaseReference database;
-
     DAO_SinhVien dao_sinhVien;
 
     @Override
@@ -44,6 +43,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initView() {
+        dao_sinhVien = new DAO_SinhVien(this);
+        dao_sinhVien.xoa("123");
+
+
 
         navigationView = (NavigationView) findViewById(R.id.navigationView);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
