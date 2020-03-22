@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
         <item
-            android:id="@+id/menu_ChoO"
+            android:id="@+id/menu_Hotel"
             android:icon="@drawable/home_24px"
             android:title="Chỗ ở"></item>
 
         <item
-            android:id="@+id/menu_AnUong"
+            android:id="@+id/menu_Food"
             android:icon="@drawable/restaurant_26px"
             android:title="Địa Điểm Ăn Uống" />
 
@@ -27,17 +27,17 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/menu_DoiMK"
+                android:id="@+id/menu_User"
                 android:icon="@drawable/user_24px"
                 android:title="Đổi Mật Khẩu" />
 
             <item
-                android:id="@+id/menu_DangXuat"
+                android:id="@+id/menu_LogOut"
                 android:icon="@drawable/export_64px"
                 android:title="Đăng xuất" />
 
             <item
-                android:id="@+id/menu_Thoat"
+                android:id="@+id/menu_Exit"
                 android:icon="@drawable/shutdown_64px"
                 android:title="Thoát" />
         </menu>

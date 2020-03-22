@@ -1,4 +1,4 @@
-package com.example.project1.Activities;
+package com.example.project1.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,30 +9,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.example.project1.Adapter.Adapter_LV_ChoO;
-import com.example.project1.DAO.DAO_SinhVien;
-import com.example.project1.Fragment.FragmentAnUong;
-import com.example.project1.Fragment.FragmentCheckIn;
-import com.example.project1.Fragment.FragmentChoO;
-import com.example.project1.Fragment.FragmentDoiMatKhau;
-import com.example.project1.Fragment.FragmentTravelBlog;
+import com.example.project1.fragment.Fragment_Food;
+import com.example.project1.fragment.Fragment_CheckIn;
+import com.example.project1.fragment.Fragment_Hotel;
+import com.example.project1.fragment.Fragment_User;
+import com.example.project1.fragment.Fragment_Blog;
 import com.example.project1.R;
-import com.example.project1.model.SinhVien;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
-    DatabaseReference database;
-    DAO_SinhVien dao_sinhVien;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +32,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initView() {
-        dao_sinhVien = new DAO_SinhVien(this);
-        dao_sinhVien.xoa("123");
-
-
-
-        navigationView = (NavigationView) findViewById(R.id.navigationView);
+        navigationView = (NavigationView) findViewById(R.id.main_navigationView);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView.setNavigationItemSelectedListener(this);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentChoO()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Hotel()).commit();
 
     }
 
@@ -69,25 +53,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_ChoO:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentChoO()).commit();
+            case R.id.menu_Hotel:
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Hotel()).commit();
                 break;
-            case R.id.menu_AnUong:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentAnUong()).commit();
+            case R.id.menu_Food:
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Food()).commit();
                 break;
             case R.id.menu_CheckIn:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentCheckIn()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_CheckIn()).commit();
                 break;
             case R.id.menu_Blog:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentTravelBlog()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Blog()).commit();
                 break;
-            case R.id.menu_DoiMK:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentDoiMatKhau()).commit();
+            case R.id.menu_User:
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_User()).commit();
                 break;
-            case R.id.menu_DangXuat:
+            case R.id.menu_LogOut:
                 finish();
                 break;
-            case R.id.menu_Thoat:
+            case R.id.menu_Exit:
                 finish();
                 break;
         }

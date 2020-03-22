@@ -1,4 +1,4 @@
-package com.example.project1.Fragment;
+package com.example.project1.fragment;
 
 import android.os.Bundle;
 
@@ -13,9 +13,9 @@ import com.example.project1.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentAnUong extends Fragment {
+public class Fragment_Food extends Fragment {
 View view;
-    public FragmentAnUong() {
+    public Fragment_Food() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,7 @@ View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_an_uong, container, false);
+        view = inflater.inflate(R.layout.fragment_food, container, false);
         return view;
     }
 }

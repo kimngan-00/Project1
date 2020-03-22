@@ -1,4 +1,4 @@
-package com.example.project1.Fragment;
+package com.example.project1.fragment;
 
 import android.os.Bundle;
 
@@ -13,9 +13,9 @@ import com.example.project1.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentCheckIn extends Fragment {
+public class Fragment_User extends Fragment {
 View view;
-    public FragmentCheckIn() {
+    public Fragment_User() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,7 @@ View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view =inflater.inflate(R.layout.fragment_check_in, container, false);
+        view =inflater.inflate(R.layout.fragment_user, container, false);
         // Inflate the layout for this fragment
         return view;
     }
