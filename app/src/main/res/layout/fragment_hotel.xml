@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.Fragment_Hotel">
 
     <TextView
@@ -15,19 +16,25 @@
         android:textColor="@color/colorBlack"
         android:textSize="30dp" />
 
-    <AutoCompleteTextView
-        android:id="@+id/fHotel_acPlaces"
-        android:layout_below="@+id/fHotel_tvTitle"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <ListView
         android:id="@+id/fHotel_lvHotel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fHotel_acPlaces">
+        android:layout_below="@id/fHotel_tvTitle"
+       >
     </ListView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fHotel_FAB_add_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorAccent"
+        android:padding="10dp"
+        app:maxImageSize="150px"
+        android:src="@drawable/fab_add_64px" />
 
 </RelativeLayout>
