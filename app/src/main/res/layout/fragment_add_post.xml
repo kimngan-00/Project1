@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".fragment.Fragment_Add_Post">
+
+
+    <TextView
+        android:id="@+id/fAddPost_tvAccommodation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/nabila"
+        android:gravity="center"
+        android:text="Accommodation Post"
+        android:textColor="@color/colorBlack"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <AutoCompleteTextView
+        android:id="@+id/fAddPost_acPlaces"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fAddPost_tvAccommodation"
+        android:layout_margin="10dp" />
+
+    <ImageView
+        android:id="@+id/fAddPost_imgLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fAddPost_acPlaces"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/add_image" />
+
+    <EditText
+        android:id="@+id/fAddPost_edNameLocate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fAddPost_imgLocation"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:hint="Location Name ..."
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/fAddPost_edAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fAddPost_edNameLocate"
+        android:hint="Address ..."
+        android:paddingHorizontal="10dp"
+        android:textSize="15dp"
+        android:textStyle="italic" />
+
+    <EditText
+        android:id="@+id/fAddPost_edDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fAddPost_edAddress"
+        android:layout_marginTop="10dp"
+        android:hint="Location Description..."
+        android:minLines="1"
+        android:paddingHorizontal="10dp"
+        android:textSize="15dp" />
+
+
+    <Button
+        android:id="@+id/fAddPost_btnPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fAddPost_edDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_add_post"
+        android:gravity="center"
+        android:text="Post"
+        android:textAllCaps="false"
+        android:textSize="20dp" />
+
+
+</RelativeLayout>
