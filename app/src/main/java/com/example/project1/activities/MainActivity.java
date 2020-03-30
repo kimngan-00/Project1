@@ -13,15 +13,21 @@ import android.view.MenuItem;
 import com.example.project1.fragment.Fragment_Food;
 import com.example.project1.fragment.Fragment_CheckIn;
 import com.example.project1.fragment.Fragment_Hotel;
-import com.example.project1.fragment.Fragment_User;
+import com.example.project1.fragment.Fragment_UserInfor;
 import com.example.project1.fragment.Fragment_Blog;
 import com.example.project1.R;
+import com.example.project1.fragment.Fragment_UserManagement;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
+    DatabaseReference databaseReference;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +35,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initView();
-        log("Nguyễn Trọng Nhân");
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("lam").setValue("Bui duy Lam");
+
     }
 
     private void initView() {
@@ -67,7 +75,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Blog()).commit();
                 break;
             case R.id.menu_User:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_User()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_UserInfor()).commit();
+                break;
+            case R.id.menu_UserManagement:
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_UserManagement()).commit();
                 break;
             case R.id.menu_LogOut:
                 finish();

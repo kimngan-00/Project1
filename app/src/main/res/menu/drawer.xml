@@ -29,7 +29,12 @@
             <item
                 android:id="@+id/menu_User"
                 android:icon="@drawable/user_24px"
-                android:title="Đổi Mật Khẩu" />
+                android:title="Thông tin người dùng" />
+
+            <item
+                android:id="@+id/menu_UserManagement"
+                android:icon="@drawable/user_24px"
+                android:title="Quản lí người dùng" />
 
             <item
                 android:id="@+id/menu_LogOut"
