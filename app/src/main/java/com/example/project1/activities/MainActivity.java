@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle toggle;
     DatabaseReference databaseReference;
 
-
+// Commit
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
