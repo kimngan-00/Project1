@@ -36,7 +36,6 @@ public class ActivityLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         edtEmail = findViewById(R.id.edt_Email);
         edtPassword = findViewById(R.id.edt_Password);
         progressBar = findViewById(R.id.progressBar);
