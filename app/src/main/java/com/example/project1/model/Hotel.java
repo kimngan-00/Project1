@@ -5,7 +5,9 @@ import android.net.Uri;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class Hotel {
+import java.io.Serializable;
+
+public class Hotel implements Serializable {
     private String id_Hotel;
     private String name_Hotel;
     private String address_Hotel;

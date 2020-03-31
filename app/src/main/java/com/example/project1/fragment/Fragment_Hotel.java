@@ -97,15 +97,15 @@ public class Fragment_Hotel extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Fragment_View_Post fragment_view_post = new Fragment_View_Post();
-                Bundle bundle_view_post = new Bundle();
-                bundle_view_post.putInt("position", position);
-                fragment_view_post.setArguments(bundle_view_post);
-
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction().replace(R.id.main_frameLayout, fragment_view_post)
-                        .addToBackStack(null)
-                        .commit();
+//                Fragment_View_Post fragment_view_post = new Fragment_View_Post();
+//                Bundle bundle_view_post = new Bundle();
+//                bundle_view_post.putInt("position", position);
+//                fragment_view_post.setArguments(bundle_view_post);
+//
+//                getActivity().getSupportFragmentManager()
+//                        .beginTransaction().replace(R.id.main_frameLayout, fragment_view_post)
+//                        .addToBackStack(null)
+//                        .commit();
 
 
             }
