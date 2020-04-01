@@ -15,6 +15,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Adapter_LV_Comment extends BaseAdapter {
     Context context;
     List<Comment> commentList;
@@ -39,20 +41,36 @@ public class Adapter_LV_Comment extends BaseAdapter {
         return 0;
     }
 
+    private class ViewHolder {
+        CircleImageView civ_User;
+        TextView tvUserName;
+        TextView tvComment;
+        TextView tvPubDate;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(R.layout.raw_comment,null);
-        TextView tvEmail = (TextView) convertView.findViewById(R.id.raw_comment_tvEmail);
-        TextView tvPubDate = (TextView) convertView.findViewById(R.id.raw_comment_tvPubDate);
-        TextView tvComment = (TextView) convertView.findViewById(R.id.raw_comment_tvComment);
-        ImageView imgAvatar = (ImageView) convertView.findViewById(R.id.raw_comment_imgAvatar);
+        ViewHolder viewHolder;
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.raw_comment, null);
+            viewHolder = new ViewHolder();
+
+            //        TextView tvPubDate = (TextView) convertView.findViewById(R.id.raw_comment_tvPubDate)
+            viewHolder.tvUserName = (TextView) convertView.findViewById(R.id.raw_comment_tvUserName);
+            viewHolder.tvComment = (TextView) convertView.findViewById(R.id.raw_comment_tvComment);
+            viewHolder.civ_User = (CircleImageView) convertView.findViewById(R.id.raw_comment_civAvatar);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+
+        }
         Comment comment = commentList.get(position);
 
-        tvEmail.setText(comment.getEmailUser());
-        tvPubDate.setText(comment.getPubDate());
-        tvComment.setText(comment.getContentComment());
-        Picasso.get().load(Uri.parse(comment.getUriAvatarUser())).into(imgAvatar);
+        viewHolder.tvUserName.setText(comment.getUserName());
+//        tvPubDate.setText(comment.getPubDate());
+        viewHolder.tvComment.setText(comment.getContentComment());
+        Picasso.get().load(Uri.parse(comment.getUriAvatarUser())).into(viewHolder.civ_User);
 
         return convertView;
     }

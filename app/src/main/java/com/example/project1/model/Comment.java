@@ -1,8 +1,16 @@
 package com.example.project1.model;
 
 public class Comment {
-    private String idComment, idUser , emailUser, pubDate,contentComment, uriAvatarUser;
+    private String idComment, idUser , emailUser, pubDate,contentComment, uriAvatarUser, userName;
     private long longPubDate;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public String getIdComment() {
         return idComment;

@@ -17,6 +17,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Adapter_lv_Hotel extends BaseAdapter {
     Context context;
     int layout;
@@ -45,6 +47,7 @@ public class Adapter_lv_Hotel extends BaseAdapter {
     }
 
     private class ViewHolder {
+        CircleImageView civ_User;
         ImageView iv_Hotel;
         TextView txt_name_Hotel;
         TextView txt_address_Hotel;
@@ -54,29 +57,37 @@ public class Adapter_lv_Hotel extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(layout, null);
-
-        ImageView iv_Hotel = (ImageView) convertView.findViewById(R.id.raw_lv_all_imgContent);
-        TextView txt_address_Hotel = (TextView) convertView.findViewById(R.id.raw_lv_all_tvAddress);
-        TextView txt_id_User = (TextView) convertView.findViewById(R.id.raw_lv_all_tvUserName);
-        TextView txt_name_Hotel = (TextView) convertView.findViewById(R.id.raw_lv_all_tvNameLocate);
-        TextView txt_pubDate_Hotel = (TextView) convertView.findViewById(R.id.raw_lv_all_tvPubDate);
+        ViewHolder viewHolder;
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(layout, null);
+            viewHolder = new ViewHolder();
+            viewHolder.civ_User = (CircleImageView) convertView.findViewById(R.id.raw_lv_all_civUser);
+            viewHolder.iv_Hotel = (ImageView) convertView.findViewById(R.id.raw_lv_all_imgContent);
+            viewHolder.txt_address_Hotel = (TextView) convertView.findViewById(R.id.raw_lv_all_tvAddress);
+            viewHolder.txt_id_User = (TextView) convertView.findViewById(R.id.raw_lv_all_tvUserName);
+            viewHolder.txt_name_Hotel = (TextView) convertView.findViewById(R.id.raw_lv_all_tvNameLocate);
+            viewHolder.txt_pubDate_Hotel = (TextView) convertView.findViewById(R.id.raw_lv_all_tvPubDate);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
 
         final Hotel hotel = hotelList.get(position);
-        Picasso.get().load(hotel.getImage_Hotel()).into(iv_Hotel);
-        txt_address_Hotel.setText(hotel.getAddress_Hotel());
-        txt_id_User.setText(hotelList.get(position).getId_User());
-        txt_name_Hotel.setText(hotel.getName_Hotel());
-        txt_pubDate_Hotel.setText(hotelList.get(position).getPubDate_Hotel());
+
+        Picasso.get().load(hotel.getImage_Hotel()).into(viewHolder.iv_Hotel);
+        viewHolder.txt_address_Hotel.setText(hotel.getAddress_Hotel());
+        viewHolder.txt_id_User.setText(hotel.getId_User());
+        viewHolder.txt_name_Hotel.setText(hotel.getName_Hotel());
+        viewHolder.txt_pubDate_Hotel.setText(hotelList.get(position).getPubDate_Hotel());
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Fragment_View_Post view_post = new Fragment_View_Post();
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("hotel",hotel);
+                bundle.putSerializable("hotel", hotel);
                 view_post.setArguments(bundle);
-                ((MainActivity)context).getSupportFragmentManager()
+                ((MainActivity) context).getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.main_frameLayout, view_post)
                         .addToBackStack(null)
