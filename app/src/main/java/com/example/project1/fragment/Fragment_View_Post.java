@@ -67,7 +67,7 @@ public class Fragment_View_Post extends Fragment {
         txtAddress.setText(hotel.getAddress_Hotel());
         txtNameLocate.setText(hotel.getName_Hotel());
         txtPubDate.setText(hotel.getPubDate_Hotel());
-        txtUserName.setText(currentUser.getDisplayName());
+        txtUserName.setText(hotel.getId_User());
         txtDescription.setText(hotel.getDescription_Hotel());
         Picasso.get().load(hotel.getImage_Hotel()).into(imgLocation);
 
