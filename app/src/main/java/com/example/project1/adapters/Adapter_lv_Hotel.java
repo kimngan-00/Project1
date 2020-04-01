@@ -1,6 +1,7 @@
 package com.example.project1.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.project1.R;
+import com.example.project1.activities.MainActivity;
+import com.example.project1.fragment.Fragment_View_Post;
 import com.example.project1.model.Hotel;
 import com.squareup.picasso.Picasso;
 
@@ -60,12 +63,26 @@ public class Adapter_lv_Hotel extends BaseAdapter {
         TextView txt_name_Hotel = (TextView) convertView.findViewById(R.id.raw_lv_all_tvNameLocate);
         TextView txt_pubDate_Hotel = (TextView) convertView.findViewById(R.id.raw_lv_all_tvPubDate);
 
-        Hotel hotel = hotelList.get(position);
+        final Hotel hotel = hotelList.get(position);
         Picasso.get().load(hotel.getImage_Hotel()).into(iv_Hotel);
         txt_address_Hotel.setText(hotel.getAddress_Hotel());
         txt_id_User.setText(hotelList.get(position).getId_User());
         txt_name_Hotel.setText(hotel.getName_Hotel());
         txt_pubDate_Hotel.setText(hotelList.get(position).getPubDate_Hotel());
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment_View_Post view_post = new Fragment_View_Post();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("hotel",hotel);
+                view_post.setArguments(bundle);
+                ((MainActivity)context).getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_frameLayout, view_post)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
 
         return convertView;
     }

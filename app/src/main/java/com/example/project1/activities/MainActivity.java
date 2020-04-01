@@ -35,8 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initView();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("lam").setValue("Bui duy Lam");
+
 
     }
 
