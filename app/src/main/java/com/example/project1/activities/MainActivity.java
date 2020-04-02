@@ -19,6 +19,7 @@ import com.example.project1.fragment.Fragment_Blog;
 import com.example.project1.R;
 import com.example.project1.fragment.Fragment_UserManagement;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -81,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_UserManagement()).commit();
                 break;
             case R.id.menu_LogOut:
+                FirebaseAuth.getInstance().signOut();
+                Intent loginActivity = new Intent(getApplicationContext(), ActivityLogin.class);
+                startActivity(loginActivity);
                 finish();
                 startActivity(new Intent(MainActivity.this, ActivityRegister.class));
                 break;

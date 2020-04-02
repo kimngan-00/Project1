@@ -3,8 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
     tools:context=".fragment.Fragment_Blog">
 
+    <ListView
+        android:id="@+id/fhome_ListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fBlog_FAB_Add_Post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#27616F"
+        android:src="@drawable/fab_add_64px"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:maxImageSize="30dp" />
 
 </RelativeLayout>
