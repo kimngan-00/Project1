@@ -164,23 +164,7 @@ public class ActivityRegister extends AppCompatActivity {
     protected void onActivityResult(int requestCODE, int resultCODE, @Nullable Intent data){
         if (requestCODE == PICK_IMAGE_CODE && data != null){
             imgAvatar.setImageURI(data.getData());
-            UploadTask uploadTask = storageReference.putFile(data.getData());
-            Task<Uri> task = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()){
-                        Toast.makeText(ActivityRegister.this, "Failed", Toast.LENGTH_SHORT).show();
-                    }
-                    return storageReference.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()){
-                        Toast.makeText(ActivityRegister.this, "Successful", Toast.LENGTH_SHORT).show();;
-                    }
-                }
-            });
+
         }
         super.onActivityResult(requestCODE, resultCODE, data);
     }
