@@ -10,20 +10,29 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:id="@+id/raw_lv_all_civUser"
+            android:layout_weight="0.7"
+            android:src="@color/colorBlack"
+            />
+
         <TextView
             android:id="@+id/raw_lv_all_tvUserName"
             android:layout_width="0sp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="3"
+            android:textStyle="bold"
             android:text="Người Đăng"
             android:textColor="@color/colorBlack"
-            android:textSize="15dp" />
+            android:textSize="17dp" />
 
         <TextView
             android:id="@+id/raw_lv_all_tvPubDate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="right"
             android:text="Ngày Đăng "
             android:textColor="@color/colorBlack"

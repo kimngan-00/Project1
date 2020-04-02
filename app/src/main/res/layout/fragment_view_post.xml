@@ -7,10 +7,6 @@
     android:orientation="vertical"
     tools:context=".fragment.Fragment_View_Post">
 
-    <ScrollView
-        android:layout_weight="6"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,47 +26,83 @@
             <LinearLayout
                 android:id="@+id/raw_lv_ln"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_below="@id/fViewPost_tvAccommodation"
                 android:layout_marginTop="10dp"
+                android:gravity="bottom"
                 android:orientation="horizontal"
                 android:paddingHorizontal="10dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/fViewPost_civUser"
+                    android:layout_weight="0.7"
+                    android:src="@color/colorBlack"
+                    />
 
                 <TextView
                     android:id="@+id/fViewPost_tvUserName"
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="3"
                     android:text="Người Đăng"
+                    android:textStyle="bold"
                     android:textColor="@color/colorBlack"
-                    android:textSize="20dp" />
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/fViewPost_tvPubDate"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="right"
                     android:text="Ngày Đăng "
                     android:textColor="@color/colorBlack"
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/fViewPost_imgLocation"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/fViewPost_rlComment"
                 android:layout_below="@id/raw_lv_ln"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/add_image" />
+
+                >
+
+                <ImageView
+                    android:id="@+id/fViewPost_imgLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/add_image" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:src="@drawable/gradient_comment"
+                    android:layout_alignParentBottom="true"
+
+                    />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:paddingRight="20dp"
+                    android:src="@drawable/comments_64px"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/fViewPost_imgComment"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
 
             <TextView
                 android:id="@+id/fViewPost_tvNameLocate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/fViewPost_imgLocation"
+                android:layout_below="@id/fViewPost_rlComment"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="Location Name "
@@ -94,45 +126,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fViewPost_tvAddress"
-                android:layout_marginTop="3dp"
-                android:minLines="1"
-                android:paddingHorizontal="17dp"
+                android:layout_marginTop="5dp"
+                android:paddingHorizontal="19dp"
                 android:text="Location Description"
                 android:textColor="@color/colorBlack" />
         </RelativeLayout>
-    </ScrollView>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_weight="4"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-        <LinearLayout
-            android:id="@+id/fViewPost_lnComment"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/colorWhite"
-            android:orientation="horizontal"
-            android:paddingHorizontal="10dp">
 
-            <EditText
-                android:id="@+id/fViewPost_edComment"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="8"
-                android:hint="Comment ... " />
 
-            <Button
-                android:id="@+id/fViewPost_btnPostComment"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="Post" />
-        </LinearLayout>
-        <ListView
-            android:id="@+id/fViewPost_lvComment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
 
 
 
