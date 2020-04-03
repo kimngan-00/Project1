@@ -55,7 +55,6 @@ public class Fragment_UserWall extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_user_wall, container, false);
         init();
-        Toast.makeText(getContext(), "aaa", Toast.LENGTH_SHORT).show();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         Bundle bundle = getArguments();
@@ -96,22 +95,7 @@ public class Fragment_UserWall extends Fragment {
                 lv_UserPost.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                     @Override
                     public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                        if(id_UserWall.equalsIgnoreCase(currentUser.getUid())){
-                            AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-                            dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dao_hotel.delete(hotelList.get(position).getId_Hotel());
-                                }
-                            }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-                        } else {
-                            Toast.makeText(getActivity(), "You can't delete this post", Toast.LENGTH_SHORT).show();
-                        }
+
                         return true;
                     }
                 });

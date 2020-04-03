@@ -1,6 +1,8 @@
 package com.example.project1.adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.project1.R;
 import com.example.project1.activities.MainActivity;
+import com.example.project1.daos.DAO_Hotel;
 import com.example.project1.fragment.Fragment_View_Post;
 import com.example.project1.model.Hotel;
 import com.google.firebase.auth.FirebaseAuth;
@@ -59,7 +62,7 @@ public class Adapter_lv_Hotel extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -101,12 +104,28 @@ public class Adapter_lv_Hotel extends BaseAdapter {
             }
         });
 
+        final DAO_Hotel dao_hotel = new DAO_Hotel(context);
         convertView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                if(hotel.getId_User().equalsIgnoreCase(currentUser.getUid())){
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+                    dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dao_hotel.delete(hotelList.get(position).getId_Hotel());
+                        }
+                    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                } else {
+                    Toast.makeText(context, "You can't delete this post", Toast.LENGTH_SHORT).show();
+                }
 
-
-                return false;
+                return true;
             }
         });
 
