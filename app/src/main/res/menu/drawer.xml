@@ -27,9 +27,9 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/menu_User"
+                android:id="@+id/menu_Admin"
                 android:icon="@drawable/user_24px"
-                android:title="Thông tin người dùng" />
+                android:title="Quản Trị Viên" />
 
             <item
                 android:id="@+id/menu_UserManagement"

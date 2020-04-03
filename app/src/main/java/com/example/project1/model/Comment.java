@@ -1,16 +1,8 @@
 package com.example.project1.model;
 
 public class Comment {
-    private String idComment, idUser , emailUser, pubDate,contentComment, uriAvatarUser, userName;
+    private String idComment, idUser , emailUser, pubDate,contentComment, uriAvatarUser;
     private long longPubDate;
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public String getIdComment() {
         return idComment;
@@ -26,14 +18,6 @@ public class Comment {
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
-    }
-
-    public String getEmailUser() {
-        return emailUser;
-    }
-
-    public void setEmailUser(String emailUser) {
-        this.emailUser = emailUser;
     }
 
     public String getPubDate() {
@@ -66,5 +50,13 @@ public class Comment {
 
     public void setLongPubDate(long longPubDate) {
         this.longPubDate = longPubDate;
+    }
+
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
     }
 }

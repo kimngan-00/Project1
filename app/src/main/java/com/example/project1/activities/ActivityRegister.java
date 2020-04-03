@@ -21,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.project1.R;
 import com.example.project1.daos.DAO_User;
 import com.example.project1.model.User;
-import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,6 +45,7 @@ public class ActivityRegister extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private DAO_User dao_user;
     private static int PICK_IMAGE_CODE = 1;
+    private User insert;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,7 +56,6 @@ public class ActivityRegister extends AppCompatActivity {
     }
 
     private void initView() {
-
         dao_user = new DAO_User(this);
         firebaseAuth = FirebaseAuth.getInstance();
         edtUserName = (EditText) findViewById(R.id.edt_UserName);
@@ -102,6 +101,7 @@ public class ActivityRegister extends AppCompatActivity {
         });
     }
     private void createUser(final String name, String email, String pass){
+        insert.setPassword(pass);
         firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -143,8 +143,8 @@ public class ActivityRegister extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    User insert = new User();
-                    insert.setUserName(name);
+                    insert = new User();
+                    insert.setName(name);
                     insert.setUriAvatar(String.valueOf(uriImage));
                     insert.setEmail(currentUser.getEmail());
                     insert.setId(currentUser.getUid());

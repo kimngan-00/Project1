@@ -11,12 +11,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.project1.fragment.Fragment_Food;
-import com.example.project1.fragment.Fragment_CheckIn;
-import com.example.project1.fragment.Fragment_Hotel;
-import com.example.project1.fragment.Fragment_UserInfor;
+import com.example.project1.fragment.Fragment_Accommodations;
+import com.example.project1.fragment.Fragment_BeautifulPlaces;
+import com.example.project1.fragment.Fragment_Blog;
+import com.example.project1.fragment.Fragment_Restaurant;
 import com.example.project1.R;
-import com.example.project1.fragment.Fragment_UserManagement;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Hotel()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Restaurant()).commit();
 
     }
 
@@ -63,22 +62,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_Hotel:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Hotel()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Accommodations()).commit();
                 break;
             case R.id.menu_Food:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Food()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Restaurant()).commit();
                 break;
             case R.id.menu_CheckIn:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_CheckIn()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_BeautifulPlaces()).commit();
                 break;
             case R.id.menu_Blog:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Food()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Blog()).commit();
                 break;
-            case R.id.menu_User:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_UserInfor()).commit();
+            case R.id.menu_Admin:
+                finish();
+                startActivity(new Intent(MainActivity.this, ActivityAdmin.class));
+
                 break;
             case R.id.menu_UserManagement:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_UserManagement()).commit();
+
                 break;
             case R.id.menu_LogOut:
                 FirebaseAuth.getInstance().signOut();

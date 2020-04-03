@@ -1,41 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#61BBFF"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:background="@drawable/background"
-    android:orientation="vertical">
+    android:layout_height="150dp">
 
     <ImageView
-        android:id="@+id/drawer_imgAvatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/school_director_male_skin_type_3_40px" />
-
+        android:id="@+id/header_imgAvatar"
+        android:layout_marginTop="5dp"
+        android:scaleType="centerCrop"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:src="@drawable/avatar_header" />
     <TextView
-        android:id="@+id/drawer_txtTen"
+        android:id="@+id/header_tvDisplayName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/drawer_imgAvatar"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorWhite"
-        android:text="Name"
-        android:textColor="@color/colorBlack"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="TEAM 2-2K"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/drawer_txtEmail"
+        android:id="@+id/header_tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/drawer_txtTen"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorWhite"
-        android:text="Email"
-        android:textColor="@color/colorBlack"
-        android:textStyle="italic|bold" />
-</RelativeLayout>
+        android:layout_gravity="center"
+        android:text="team22k@gmail.com"
+        android:textSize="15sp"
+        android:textStyle="italic" />
+
+</LinearLayout>

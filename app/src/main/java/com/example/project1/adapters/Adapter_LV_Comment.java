@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
 
 import com.example.project1.R;
 import com.example.project1.model.Comment;
@@ -41,36 +41,21 @@ public class Adapter_LV_Comment extends BaseAdapter {
         return 0;
     }
 
-    private class ViewHolder {
-        CircleImageView civ_User;
-        TextView tvUserName;
-        TextView tvComment;
-        TextView tvPubDate;
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder;
-        if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.raw_comment, null);
-            viewHolder = new ViewHolder();
-
-            //        TextView tvPubDate = (TextView) convertView.findViewById(R.id.raw_comment_tvPubDate)
-            viewHolder.tvUserName = (TextView) convertView.findViewById(R.id.raw_comment_tvUserName);
-            viewHolder.tvComment = (TextView) convertView.findViewById(R.id.raw_comment_tvComment);
-            viewHolder.civ_User = (CircleImageView) convertView.findViewById(R.id.raw_comment_civAvatar);
-            convertView.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) convertView.getTag();
-
-        }
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        convertView = inflater.inflate(R.layout.raw_comment,null);
+        TextView tvEmail = (TextView) convertView.findViewById(R.id.raw_comment_tvEmail);
+        TextView tvPubDate = (TextView) convertView.findViewById(R.id.raw_comment_tvPubDate);
+        TextView tvComment = (TextView) convertView.findViewById(R.id.raw_comment_tvComment);
+        CircleImageView imgAvatar = (CircleImageView) convertView.findViewById(R.id.raw_comment_imgAvatar);
         Comment comment = commentList.get(position);
 
-        viewHolder.tvUserName.setText(comment.getUserName());
-//        tvPubDate.setText(comment.getPubDate());
-        viewHolder.tvComment.setText(comment.getContentComment());
-        Picasso.get().load(Uri.parse(comment.getUriAvatarUser())).into(viewHolder.civ_User);
+        tvEmail.setText(comment.getEmailUser());
+        tvPubDate.setText(comment.getPubDate());
+        tvComment.setText(comment.getContentComment());
+        Picasso.get().load(Uri.parse(comment.getUriAvatarUser())).into(imgAvatar);
+
 
         return convertView;
     }

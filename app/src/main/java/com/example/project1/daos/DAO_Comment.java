@@ -5,15 +5,19 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+
 import com.example.project1.model.Comment;
-import com.example.project1.model.Firebase_CallBack;
+import com.example.project1.model.FirebaseCallback;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class DAO_Comment {
@@ -27,13 +31,13 @@ public class DAO_Comment {
         this.dbComment = FirebaseDatabase.getInstance().getReference("comments");
     }
 
-    public void insert(String idPost, Comment comment){
+    public void insert(String idPost, com.example.project1.model.Comment comment){
         String idComment = dbComment.push().getKey();
         comment.setIdComment(idComment);
         dbComment.child(idPost).child(idComment).setValue(comment);
     }
 
-    public void getData(String idPost, final Firebase_CallBack firebase_callBack){
+    public void getData(String idPost, final FirebaseCallback firebaseCallback){
         final List<Comment> commentList = new ArrayList<>();
         dbComment.child(idPost).addValueEventListener(new ValueEventListener() {
             @Override
@@ -43,7 +47,19 @@ public class DAO_Comment {
                     Comment comment = ds.getValue(Comment.class);
                     commentList.add(comment);
                 }
-                firebase_callBack.getDataComment(commentList);
+                Collections.sort(commentList, new Comparator<Comment>() {
+                    @Override
+                    public int compare(Comment o1, Comment o2) {
+                        if (o1.getLongPubDate() > o2.getLongPubDate()){
+                            return -1;
+                        }else if (o1.getLongPubDate() < o2.getLongPubDate()){
+                            return 1;
+                        }else {
+                            return 0;
+                        }
+                    }
+                });
+                firebaseCallback.commentList(commentList);
             }
 
             @Override
@@ -51,6 +67,5 @@ public class DAO_Comment {
 
             }
         });
-
     }
 }
