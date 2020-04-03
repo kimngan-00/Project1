@@ -8,12 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.project1.R;
 import com.example.project1.adapters.Adapter_LV_Comment;
@@ -67,7 +65,7 @@ public class Fragment_View_Post extends Fragment {
         txtAddress.setText(hotel.getAddress_Hotel());
         txtNameLocate.setText(hotel.getName_Hotel());
         txtPubDate.setText(hotel.getPubDate_Hotel());
-        txtUserName.setText(hotel.getId_User());
+        txtUserName.setText(hotel.getUser_Name());
         txtDescription.setText(hotel.getDescription_Hotel());
         Picasso.get().load(hotel.getImage_Hotel()).into(imgLocation);
 
@@ -76,6 +74,21 @@ public class Fragment_View_Post extends Fragment {
             public void onClick(View v) {
                 dialogShow();
 
+            }
+        });
+
+        txtUserName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment_UserWall fragment_userWall = new Fragment_UserWall();
+                Bundle bundle_UserWall = new Bundle();
+                bundle_UserWall.putString("Uid",hotel.getId_User());
+                fragment_userWall.setArguments(bundle_UserWall);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main_frameLayout, fragment_userWall)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 

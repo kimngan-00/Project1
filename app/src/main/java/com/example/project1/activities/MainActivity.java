@@ -15,13 +15,11 @@ import com.example.project1.fragment.Fragment_Food;
 import com.example.project1.fragment.Fragment_CheckIn;
 import com.example.project1.fragment.Fragment_Hotel;
 import com.example.project1.fragment.Fragment_UserInfor;
-import com.example.project1.fragment.Fragment_Blog;
 import com.example.project1.R;
 import com.example.project1.fragment.Fragment_UserManagement;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     NavigationView navigationView;
@@ -43,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initView() {
         navigationView = (NavigationView) findViewById(R.id.main_navigationView);
+
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView.setNavigationItemSelectedListener(this);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_CheckIn()).commit();
                 break;
             case R.id.menu_Blog:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Blog()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_Food()).commit();
                 break;
             case R.id.menu_User:
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, new Fragment_UserInfor()).commit();

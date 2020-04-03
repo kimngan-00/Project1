@@ -84,6 +84,7 @@
                     android:layout_height="50dp"
                     android:src="@drawable/gradient_comment"
                     android:layout_alignParentBottom="true"
+                    android:alpha="0.5"
 
                     />
                 <ImageView
@@ -94,8 +95,8 @@
                     android:layout_alignParentRight="true"
                     android:id="@+id/fViewPost_imgComment"
                     android:layout_alignParentBottom="true"/>
-
             </RelativeLayout>
+
 
 
             <TextView
@@ -131,9 +132,4 @@
                 android:text="Location Description"
                 android:textColor="@color/colorBlack" />
         </RelativeLayout>
-
-
-
-
-
 </LinearLayout>

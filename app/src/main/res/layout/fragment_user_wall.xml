@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.Fragment_UserWall">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fUserWall_civUserAvatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/school_director_male_skin_type_3_40px" />
+
+    <TextView
+        android:id="@+id/fUserWall_tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fUserWall_civUserAvatar"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="User Name"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/fUserWall_tvUserEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fUserWall_tvUserName"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:text="User Email"
+        android:textSize="15dp"
+        android:textStyle="italic" />
+
+    <ListView
+        android:id="@+id/fUserWall_lvUserPost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fUserWall_tvUserEmail"
+        android:layout_marginTop="5dp" />
+
+
+</RelativeLayout>

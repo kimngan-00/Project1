@@ -28,6 +28,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,7 +63,9 @@ public class Fragment_Add_Post extends Fragment {
     int PICK_IMAGE_REQUEST = 10;
     Uri filePath;
     DAO_Hotel dao_hotel = new DAO_Hotel(getActivity(), this);
+    FirebaseUser firebaseUser;
     StorageReference storageReference;
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -85,7 +89,7 @@ public class Fragment_Add_Post extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add_post, container, false);
-
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
 //        Init
         edAddress = (EditText) view.findViewById(R.id.fAddPost_edAddress);
@@ -145,6 +149,9 @@ public class Fragment_Add_Post extends Fragment {
                 String address = edAddress.getText().toString();
                 String description = edDescription.getText().toString();
                 String namePlace = acPlace.getText().toString();
+                String imgUser = String.valueOf(firebaseUser.getPhotoUrl());
+                String userName = firebaseUser.getDisplayName();
+
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy ");
                 String date = formatter.format(calendar.getTime()) + "";
@@ -154,6 +161,9 @@ public class Fragment_Add_Post extends Fragment {
                 hotel.setName_Hotel(name);
                 hotel.setDescription_Hotel(description);
                 hotel.setPubDate_Hotel(date);
+                hotel.setUser_Name(userName);
+                hotel.setImage_User(imgUser);
+                hotel.setId_User(firebaseUser.getUid());
 
                 final StorageReference ref = FirebaseStorage.getInstance()
                         .getReference("hotel/" + UUID.randomUUID().toString());

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.project1.model.Firebase_CallBack;
 import com.example.project1.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,7 +48,7 @@ public class DAO_User {
             }
         });
     }
-    public List<User> getData(){
+    public List<User> getData(final Firebase_CallBack firebase_callBack){
         final List<User> userList = new ArrayList<>();
         db_User.addValueEventListener(new ValueEventListener() {
             @Override
@@ -63,8 +64,7 @@ public class DAO_User {
                         return  o1.getId().compareTo(o2.getId());
                     }
                 });
-
-
+                firebase_callBack.getDataUser(userList);
             }
 
             @Override

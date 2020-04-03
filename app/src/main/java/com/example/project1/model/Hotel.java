@@ -1,10 +1,5 @@
 package com.example.project1.model;
 
-import android.net.Uri;
-
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
 import java.io.Serializable;
 
 public class Hotel implements Serializable {
@@ -13,9 +8,27 @@ public class Hotel implements Serializable {
     private String address_Hotel;
     private String description_Hotel;
     private String image_Hotel;
-    private String id_User;
+    private String user_Name;
     private String pubDate_Hotel;
     private String name_Place;
+    private String image_User;
+    private String id_User;
+
+    public String getId_User() {
+        return id_User;
+    }
+
+    public void setId_User(String id_User) {
+        this.id_User = id_User;
+    }
+
+    public String getImage_User() {
+        return image_User;
+    }
+
+    public void setImage_User(String image_User) {
+        this.image_User = image_User;
+    }
 
     public String getName_Place() {
         return name_Place;
@@ -68,12 +81,12 @@ public class Hotel implements Serializable {
         this.image_Hotel = image_Hotel;
     }
 
-    public String getId_User() {
-        return id_User;
+    public String getUser_Name() {
+        return user_Name;
     }
 
-    public void setId_User(String id_User) {
-        this.id_User = id_User;
+    public void setUser_Name(String user_Name) {
+        this.user_Name = user_Name;
     }
 
     public String getPubDate_Hotel() {
