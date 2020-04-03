@@ -55,6 +55,7 @@ public class Fragment_UserWall extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_user_wall, container, false);
         init();
+        Toast.makeText(getContext(), "aaa", Toast.LENGTH_SHORT).show();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         Bundle bundle = getArguments();
