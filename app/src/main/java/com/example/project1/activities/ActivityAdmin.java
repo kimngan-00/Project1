@@ -26,6 +26,7 @@ public class ActivityAdmin extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initView();
+//        commit gd 1
 
     }
     private void initView() {
